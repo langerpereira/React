@@ -1,15 +1,24 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.css';
 
 const initialState = false;
 
 function Productlist({name, dummyItem}){
     const [flag, setflag] = useState(initialState)
+    const [count, setCount] = useState(0)
 
     function handleToggleText(){
         setflag(!flag)
     }
+
+    function handleIncreaseCount(){
+        
+    }
+
+    useEffect(()=>{
+        setflag(!flag)
+    },[])
 
     return (
         <div>
@@ -22,6 +31,11 @@ function Productlist({name, dummyItem}){
                     <h4>Hello!!!</h4>
                 )
             }
+
+            <div>
+                <button onClick={handleIncreaseCount}>Increase Count</button>
+                <p>Count is {count}</p>
+            </div>
 
             <h4>Name is {name}</h4>
             <ul>
